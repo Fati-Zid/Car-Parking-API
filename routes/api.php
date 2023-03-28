@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Api\V1\Authentication;
 use App\Http\Controllers\Api\V1\VehicleController;
+use App\Http\Controllers\Api\V1\ZoneController;
 use App\Http\Middleware\Authenticate;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -19,6 +20,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('profile', [Authentication\ProfileController::class, 'update']);
     Route::put('password', Authentication\PasswordUpdateController::class);
     Route::put('logout', Authentication\LogoutController::class);
+
+    Route::get('zones', [ZoneController::class, 'index']);
 
     Route::apiResource('vehicles', VehicleController::class);
 });
