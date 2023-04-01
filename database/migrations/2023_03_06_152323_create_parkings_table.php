@@ -26,6 +26,7 @@ return new class extends Migration
             $table->integer('totale_price')->nullable();
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
